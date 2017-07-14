@@ -1,7 +1,3 @@
-# PHP-Docker
-
-
-
 PHP-Docker
 ===================
 
@@ -13,13 +9,10 @@ Usage
 =====
 
 1. Pull the docker image
-
 ```
 docker pull leoplatform/php
 ```
-
-3. Edit the **test.php** file
-
+2. Create a file called **test.php** and replace the values in the config for appropriate ones in your installation.  These values can be obtained in your AWS console. If you are a managed install you can obtain these values by contacting support. 
 ```
 <?php
 
@@ -58,13 +51,13 @@ for($i = 0; $i < 10000; $i++) {
 $stream->end();
 ```
 
-The config values can be found in your aws console or by contacting Leo support if you are running a managed install.
-
-4. Run the script
+3. Run the script
 
 ```
 sudo docker run -it --env AWS_ACCESS_KEY_ID=???????????????????? --env AWS_SECRET_ACCESS_KEY=???????????????????? --env AWS_DEFAULT_REGION=??????????? --rm --name leoplatform-run leoplatform php test.php
 ```
+The access keys can be found in your aws console or by contacting Leo support if you are running a managed install.
+
 
 Documentation
 -------------
@@ -76,4 +69,3 @@ https://docs.leoplatform.io
 Or here:
 
 https://github.com/LeoPlatform/PHP
-
