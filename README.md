@@ -9,14 +9,22 @@ Usage
 =====
 
 1. Pull the docker image
+
 ```
-docker pull leoplatform/php
+$ docker pull leoplatform/php
 ```
-2. Create a file called **test.php** and replace the values in the config for appropriate ones in your installation.  These values can be obtained in your AWS console. If you are a managed install you can obtain these values by contacting support. 
+2. Create a project folder, or use an existing project.
+
+```
+$ mkdir myproject; cd myproject
+```
+
+3. Create a file called **test.php** and replace the values in the config for appropriate ones in your installation.   These values can be obtained in your AWS console. If you are a managed install you can obtain these values by contacting support. 
+
 ```
 <?php
 
-require_once("vendor/autoload.php");
+require_once("../vendor/autoload.php");
 
 use LEO\Stream;
 
@@ -53,9 +61,11 @@ $stream->end();
 
 3. Run the script
 
+
 ```
 sudo docker run -it --env AWS_ACCESS_KEY_ID=???????????????????? --env AWS_SECRET_ACCESS_KEY=???????????????????? --env AWS_DEFAULT_REGION=??????????? --rm --name leoplatform-run leoplatform php test.php
 ```
+
 The access keys can be found in your aws console or by contacting Leo support if you are running a managed install.
 
 
