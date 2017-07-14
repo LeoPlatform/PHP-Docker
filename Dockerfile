@@ -4,6 +4,7 @@ RUN apt-get install -y apt-utils
 RUN apt-get install -y python3
 RUN apt-get install -y python3-pip
 RUN pip3 install --upgrade --user awscli
+RUN echo export PATH=~/.local/bin:$PATH >> ~/.bashrc
 RUN apt-get install -y git
 COPY ./sdk/ /usr/src/myapp
 WORKDIR /usr/src/myapp
