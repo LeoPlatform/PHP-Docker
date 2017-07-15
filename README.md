@@ -13,6 +13,7 @@ Usage
 ```
 $ docker pull leoplatform/php
 ```
+
 2. Create a project folder, or use an existing project.
 
 ```
@@ -63,11 +64,33 @@ $stream->end();
 
 
 ```
-sudo docker run -it --env AWS_ACCESS_KEY_ID=???????????????????? --env AWS_SECRET_ACCESS_KEY=???????????????????? --env AWS_DEFAULT_REGION=??????????? --rm --name leoplatform-run leoplatform php test.php
+sudo docker run -it --volume /path/to/your/project:/usr/src/myapp/src --env AWS_ACCESS_KEY_ID=???????????????????? --env AWS_SECRET_ACCESS_KEY=???????????????????? --env AWS_DEFAULT_REGION=??????????? --rm --name leoplatform-run leoplatform php src/test.php
 ```
+
+NOTE: your current project directory is mapped to the /usr/src/myapp/src/ directory inside the image.
 
 The access keys can be found in your aws console or by contacting Leo support if you are running a managed install.
 
+
+AWS Credentials
+--------------
+
+There are 3 ways to set your AWS credentials:
+
+1. Pass them in on the docker command like the example above.
+
+2. Set them by running ```aws configure``` inside the docker container.
+
+```
+$ sudo docker run -it --rm --name leoplatform-run leoplatform/php /bin/sh
+# aws
+```
+
+3. The volume /root/.aws has been exposed within the image for external access. Therefore you can mount the AWS credential file to the container:
+
+```
+sudo docker run --rm --volume ./.aws:/root/.aws --name leoplatform-run leoplatform/php php test.php 
+```
 
 Documentation
 -------------
