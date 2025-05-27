@@ -1,4 +1,4 @@
-FROM php:7.4.32-cli
+FROM php:7.4.33-cli
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y python3
